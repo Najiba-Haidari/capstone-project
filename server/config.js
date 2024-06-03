@@ -7,12 +7,12 @@ dotenv.config();
 const mongoConfig = async () => {
     try {
         // Connection options to avoid deprecation warnings and ensure better handling
-        const options = {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        };
+        // const options = {
+        //     useNewUrlParser: true,
+        //     // useUnifiedTopology: true,
+        // };
 
-        await mongoose.connect(process.env.MONGOOSE_URI, options);
+        await mongoose.connect(process.env.MONGOOSE_URI);
         console.log("Connected to MongoDB");
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
