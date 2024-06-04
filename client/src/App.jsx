@@ -1,10 +1,12 @@
 import './App.css'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './components/pages/Home.jsx'
-import Signup from './components/pages/Signup.jsx'
-import Login from './components/pages/Login.jsx'
+import Home from './components/pages/Home/Home.jsx'
+import Signup from './components/pages/Signup/Signup.jsx'
+import Login from './components/pages/Login/Login.jsx'
 import Nav from './components/Nav.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 const [isLoggedIn, setIsLoggedIn]= useState(false)
@@ -15,7 +17,7 @@ const logout = () => {
 };
 
   return (
-    <div>
+    <div className='image'>
       <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />

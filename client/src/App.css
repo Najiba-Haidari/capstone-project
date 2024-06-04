@@ -4,6 +4,20 @@
   margin: 0 auto;
   /* padding: 2rem; */
   text-align: center;
+  
+}
+.image{
+   background-image: url("../src/assets/photo-1603988533324-9e39be986394.avif");
+  background-repeat: no-repeat;
+  background-position: 'center';
+  background-size: 100% ;
+  background-color: rgba(10, 9, 12, 0.983);    
+
+  /* filter: blur(0px); */
+  /* -webkit-filter: blur(8px); */
+  /* background-blend-mode: 'lighten'; */
+  min-height: 140vh;
+  /* width: 100%; */
 }
 
 .logo {

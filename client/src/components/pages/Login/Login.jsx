@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import './Login.css'
 
 const Login = ({setIsLoggedIn}) => {
   const [email, setEmail] = useState("");
@@ -38,12 +38,13 @@ const Login = ({setIsLoggedIn}) => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="transparent-login ">
+      <h2 className="my-3 ">Login</h2>
+      <form onSubmit={handleSubmit} className="">
         <div>
           {/* <label htmlFor="email">Email:</label> */}
           <input
+          className="p-2 my-3 w-100"
             type="email"
             id="email"
             value={email}
@@ -55,6 +56,7 @@ const Login = ({setIsLoggedIn}) => {
         <div>
           {/* <label htmlFor="password">Password:</label> */}
           <input
+          className="p-2 my-3 w-100"
             type="password"
             id="password"
             value={password}
@@ -64,7 +66,7 @@ const Login = ({setIsLoggedIn}) => {
           />
         </div>
         {error && <div style={{ color: 'red' }}>{error}</div>}
-        <button type="submit">Login</button>
+        <button type="submit" className="btn btn-primary w-50 p-2 my-3">Login</button>
       </form>
     </div>
   );

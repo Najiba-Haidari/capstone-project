@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Wrap, WrapItem, Center, Box, Flex } from '@chakra-ui/react'
+import './Nav.css'
+import { Wrap, WrapItem, Center, Box, Flex, Spacer } from '@chakra-ui/react'
 
 export default function Nav({ isLoggedIn, logout }) {
 
@@ -20,27 +21,28 @@ export default function Nav({ isLoggedIn, logout }) {
 
 
     return (
-        <Flex>
-        <Box bg="gray" p={2} boxShadow="md" w="100%">
+        <Flex className='navbar ' >
+        <Box textColor={'white'} textAlign={'center'} marginX={2} p={4}  w="100%">
             <Wrap>
                 <WrapItem>
-                    <Center w='180px' h='80px' >
+                    <Center w='180px' h='50px' >
                         <Link to="/">
                             <div>Home</div>
                         </Link>
                     </Center>
                 </WrapItem>
+                <Spacer />
                 {!isLoggedIn && (
                     <>
                         <WrapItem>
-                            <Center w='180px' h='80px' bg='red.200'>
+                            <Center w='180px' h='50px' >
                                 <Link to="/signup">
                                     <div>Signup</div>
                                 </Link>
                             </Center>
                         </WrapItem>
                         <WrapItem>
-                            <Center w='180px' h='80px' >
+                            <Center w='180px' h='50px' >
                                 <Link to="/login">
                                     <div>login</div>
                                 </Link>
@@ -50,7 +52,7 @@ export default function Nav({ isLoggedIn, logout }) {
                 )}
                 {isLoggedIn && (
                     <WrapItem>
-                        <Center w='180px' h='80px' >
+                        <Center w='180px' h='50px' >
                             <div onClick={handleLogout}>
                                 <div>Logout</div>
                             </div>

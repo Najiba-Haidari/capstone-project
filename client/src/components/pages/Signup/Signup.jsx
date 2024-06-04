@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import './Signup.css'
 
 export default function Signup() {
     const [username, setUsername] = useState("");
@@ -29,9 +30,11 @@ export default function Signup() {
     };
 
     return (
-        <div>
+        <div className="transparent-signup">
+        <h2 className="my-3">Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <input
+                className="p-2 my-3 w-100"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -40,6 +43,7 @@ export default function Signup() {
                 />
                 <br/>
                 <input
+                className="p-2 my-3 w-100"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -48,6 +52,7 @@ export default function Signup() {
                 />
                   <br/>
                 <input
+                className="p-2 my-3 w-100"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -55,7 +60,7 @@ export default function Signup() {
                     required
                 />
                   <br/>
-                <button type="submit" >Signup</button>
+                <button className="btn btn-primary w-50 p-2 my-3" type="submit" >Signup</button>
             </form>
         </div>
     )

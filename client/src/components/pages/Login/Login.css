@@ -1,0 +1,8 @@
+.transparent-login{
+    width: 450px;
+    height: 400px;
+    margin: 80px auto;
+    padding: 50px;
+background-color: rgba(195, 190, 190, 0.5);    
+color: white;
+}
