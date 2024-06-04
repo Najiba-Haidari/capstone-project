@@ -43,6 +43,23 @@ export const loginUser= async(req, res)=> {
     }
 }
 
+export const logoutUser = async (req, res) => {
+    try {
+        // Clear the token from the client-side localStorage or sessionStorage
+        // This effectively logs the user out on the client side
+        res.clearCookie('jwtToken'); // Clear cookie if using cookies
+        // or
+        // localStorage.removeItem('token'); // Clear localStorage if using localStorage
+        // or
+        // sessionStorage.removeItem('token'); // Clear sessionStorage if using sessionStorage
+
+        res.status(200).json({ message: 'User logged out successfully' });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
 export const getMe = async (req, res)=> {
     try {
         // Extract user from request (set by auth middleware)
