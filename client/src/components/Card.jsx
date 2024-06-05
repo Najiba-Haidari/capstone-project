@@ -1,12 +1,31 @@
 // import React, { useContext } from 'react';
 // import { ExerciseContext } from '../ExerciseContext';
+import axios from 'axios';
 
-export default function Cards(props) {
+
+export default function Cards({ bpData, setBpData }) {
     // const { saveExercise, text } = useContext(ExerciseContext);
+    const saveExercise = async (exercise) => {
+        const exerciseData = {
+          name: exercise.name,
+          gifUrl: exercise.gifUrl,
+          target: exercise.target,
+          equipment: exercise.equipment,
+          secondaryMuscles: exercise.secondaryMuscles,
+        };
+    
+        try {
+          await axios.post('http://localhost:3000/api/exercises', exerciseData);
+          alert('Exercise saved successfully!');
+        } catch (error) {
+          console.error('Error saving exercise', error);
+        }
+      };
 
+      
     return (
         <div className="container-card d-flex flex-row flex-wrap justify-content-center text-start">
-            {props.bpData.map((e) => (
+            {bpData.map((e) => (
                 <div className="card-box col-12 col-sm-12 col-md-12 col-lg-6 mb-3 p-2" key={e.id}>
                     <div className="card mb-1 shadow " key={e.id} >
                         <div className="row">
@@ -18,12 +37,12 @@ export default function Cards(props) {
                                     <h5 className="card-title">{e.name}</h5>
                                     <p className="card-text">Target: {e.target}</p>
                                     <p className="card-text">Equipment: {e.equipment}</p>
-                                    <ul className="card-text">Secondary Muscles: {e.secondaryMuscles.map((m, i) => (
+                                    {/* <ul className="card-text">Secondary Muscles: {e.secondaryMuscles.map((m, i) => (
                                         <li key={m}>{m}</li>
-                                    ))}</ul>
+                                    ))}</ul> */}
                                     {/* <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                 </div>
-                                <button id="save" className="btn btn-primary w-25 p-2" >Save</button>
+                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>Save</button>
 
                             </div>
 
