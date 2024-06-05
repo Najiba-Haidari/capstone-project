@@ -1,5 +1,5 @@
 import { Parallax } from 'react-parallax';
-import ImageFit from '../../../assets/photo-1522898467493-49726bf28798.avif'
+import ImageFit from '../../../assets/photo-1623200216581-969d9479cf7d.avif'
 
 
 import './Home.css'

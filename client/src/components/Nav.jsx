@@ -22,7 +22,7 @@ export default function Nav({ isLoggedIn, logout }) {
 
     return (
         <Flex className='navbar ' >
-        <Box textColor={'white'} textAlign={'center'} margin={0} p={4}  w="100%">
+        <Box  textAlign={'center'} margin={0} p={4}  w="100%">
             <Wrap>
                 <WrapItem>
                     <Center w='180px' h='50px' >
