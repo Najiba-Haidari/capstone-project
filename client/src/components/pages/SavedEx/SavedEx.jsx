@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { ExerciseContext } from '../../../ExerciseContext.jsx'
+// import { useEffect } from 'react';
 import axios from 'axios';
 import './SavedEx.css';
 
 export default function SavedEx() {
-  const [savedExercises, setSavedExercises] = useState([]);
+//   const [savedExercises, setSavedExercises] = useState([]);
+const { savedExercises, setSavedExercises, deleteExercise } = useContext(ExerciseContext);
+
 
   const getSavedExercises = async () => {
     try {
@@ -14,14 +18,14 @@ export default function SavedEx() {
     }
   };
 
-  const deleteExercise = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/exercises/${id}`);
-      setSavedExercises(savedExercises.filter(exercise => exercise._id !== id));
-    } catch (error) {
-      console.error('Error deleting exercise', error);
-    }
-  };
+//   const deleteExercise = async (id) => {
+//     try {
+//       await axios.delete(`http://localhost:3000/api/exercises/${id}`);
+//       setSavedExercises(savedExercises.filter(exercise => exercise._id !== id));
+//     } catch (error) {
+//       console.error('Error deleting exercise', error);
+//     }
+//   };
 
   useEffect(() => {
     getSavedExercises();

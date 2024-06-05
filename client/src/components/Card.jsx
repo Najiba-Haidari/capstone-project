@@ -1,35 +1,35 @@
-// import React, { useContext } from 'react';
-// import { ExerciseContext } from '../ExerciseContext';
-import axios from 'axios';
-import {useState} from 'react'
+import React, { useContext } from 'react';
+import { ExerciseContext } from '../ExerciseContext.jsx';
+// import axios from 'axios';
+// import {useState} from 'react'
 
 
 export default function Cards({ bpData, setBpData }) {
-    // const { saveExercise, text } = useContext(ExerciseContext);
-    const [savedExercises, setSavedExercises] = useState([]);
+    const { saveExercise, text } = useContext(ExerciseContext);
+    // const [savedExercises, setSavedExercises] = useState([]);
 
-    const saveExercise = async (exercise) => {
-        const exerciseData = {
-            name: exercise.name,
-            gifUrl: exercise.gifUrl,
-            target: exercise.target,
-            equipment: exercise.equipment,
-            //   secondaryMuscles: exercise.secondaryMuscles,
-        };
+    // const saveExercise = async (exercise) => {
+    //     const exerciseData = {
+    //         name: exercise.name,
+    //         gifUrl: exercise.gifUrl,
+    //         target: exercise.target,
+    //         equipment: exercise.equipment,
+    //         //   secondaryMuscles: exercise.secondaryMuscles,
+    //     };
 
-        try {
-            if (!savedExercises.some(saved => saved.name === exercise.name)) {
-                await axios.post('http://localhost:3000/api/exercises', exerciseData);
-                setSavedExercises([...savedExercises, exercise]);
-                alert('Exercise saved successfully!');
-            }
-            else {
-                alert('Exercise already saved!');
-            }
-        } catch (error) {
-            console.error('Error saving exercise', error);
-        }
-    };
+    //     try {
+    //         if (!savedExercises.some(saved => saved.name === exercise.name)) {
+    //             await axios.post('http://localhost:3000/api/exercises', exerciseData);
+    //             setSavedExercises([...savedExercises, exercise]);
+    //             alert('Exercise saved successfully!');
+    //         }
+    //         else {
+    //             alert('Exercise already saved!');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error saving exercise', error);
+    //     }
+    // };
 
 
     return (
@@ -51,7 +51,7 @@ export default function Cards({ bpData, setBpData }) {
                                     ))}</ul> */}
                                     {/* <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                 </div>
-                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>Save</button>
+                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{text[e.id] || "Save"}</button>
 
                             </div>
 
