@@ -5,7 +5,7 @@ const ImageTwo = () => (
     <Parallax className='image' bgImage={Imageother}  strength={800}>
         <div className='content'>
             <span className='img-txt'>
-    A journey for healthy body!
+            Achieve Your Fitness Goals with Tailored Routines
             </span>
         </div>
     </Parallax>

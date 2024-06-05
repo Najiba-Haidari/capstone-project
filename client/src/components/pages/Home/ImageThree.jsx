@@ -5,7 +5,7 @@ const ImageThree = () => (
     <Parallax className='image' bgImage={Imagethree}  strength={800}>
         <div className='content'>
             <span className='img-txt'>
-    A journey for healthy body!
+            Transform Your Fitness Journey with ExerciseXpert
             </span>
         </div>
     </Parallax>

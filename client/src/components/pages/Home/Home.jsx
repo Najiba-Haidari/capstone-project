@@ -3,6 +3,7 @@ import ImageOne from "./ImageOne.jsx";
 import ImageTwo from "./ImageTwo.jsx";
 import ImageThree from "./ImageThree.jsx";
 import TextBox from './TextBox.jsx';
+import TextBoxTwo from './TextBoxTwo.jsx';
 
 
 export default function Home(){
@@ -11,7 +12,7 @@ export default function Home(){
             <ImageOne/>
             <TextBox/>
             <ImageTwo/>
-            <TextBox/>
+            <TextBoxTwo/>
             <ImageThree/>
         </div>
     )
