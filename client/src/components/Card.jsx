@@ -1,28 +1,37 @@
 // import React, { useContext } from 'react';
 // import { ExerciseContext } from '../ExerciseContext';
 import axios from 'axios';
+import {useState} from 'react'
 
 
 export default function Cards({ bpData, setBpData }) {
     // const { saveExercise, text } = useContext(ExerciseContext);
+    const [savedExercises, setSavedExercises] = useState([]);
+
     const saveExercise = async (exercise) => {
         const exerciseData = {
-          name: exercise.name,
-          gifUrl: exercise.gifUrl,
-          target: exercise.target,
-          equipment: exercise.equipment,
-          secondaryMuscles: exercise.secondaryMuscles,
+            name: exercise.name,
+            gifUrl: exercise.gifUrl,
+            target: exercise.target,
+            equipment: exercise.equipment,
+            //   secondaryMuscles: exercise.secondaryMuscles,
         };
-    
-        try {
-          await axios.post('http://localhost:3000/api/exercises', exerciseData);
-          alert('Exercise saved successfully!');
-        } catch (error) {
-          console.error('Error saving exercise', error);
-        }
-      };
 
-      
+        try {
+            if (!savedExercises.some(saved => saved.name === exercise.name)) {
+                await axios.post('http://localhost:3000/api/exercises', exerciseData);
+                setSavedExercises([...savedExercises, exercise]);
+                alert('Exercise saved successfully!');
+            }
+            else {
+                alert('Exercise already saved!');
+            }
+        } catch (error) {
+            console.error('Error saving exercise', error);
+        }
+    };
+
+
     return (
         <div className="container-card d-flex flex-row flex-wrap justify-content-center text-start">
             {bpData.map((e) => (
