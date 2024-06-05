@@ -4,7 +4,7 @@
 
 .image{
     position: relative;
-    height: 100vh;
+    height: 50vh;
 }
 
 .content{
@@ -17,10 +17,11 @@
 }
 
 .content span.img-txt{
-    background-color: #333;
+    background-color: rgba(90, 83, 83, 0.7);
+    border-radius: 60px;
     text-transform: uppercase;
     color: #fff;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: 1.5rem;
     letter-spacing: 10px;
 }
