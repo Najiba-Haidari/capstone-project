@@ -7,7 +7,10 @@
   
 }
 .image{
-   background-image: url("../src/assets/photo-1603988533324-9e39be986394.avif");
+   background-image: linear-gradient(
+    rgba(248, 243, 243, 0.7), 
+    rgba(247, 241, 241, 0.8)
+  ),url("../src/assets/photo-1623200216581-969d9479cf7d.avif");
   background-repeat: no-repeat;
   background-position: 'center';
   background-size: 100% ;
@@ -16,7 +19,7 @@
   /* filter: blur(0px); */
   /* -webkit-filter: blur(8px); */
   /* background-blend-mode: 'lighten'; */
-  min-height: 140vh;
+  min-height: 100vh;
   /* width: 100%; */
 }
 
