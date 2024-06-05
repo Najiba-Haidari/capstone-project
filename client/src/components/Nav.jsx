@@ -22,7 +22,7 @@ export default function Nav({ isLoggedIn, logout }) {
 
     return (
         <Flex className='navbar ' >
-        <Box textColor={'white'} textAlign={'center'} marginX={2} p={4}  w="100%">
+        <Box textColor={'white'} textAlign={'center'} margin={0} p={4}  w="100%">
             <Wrap>
                 <WrapItem>
                     <Center w='180px' h='50px' >
@@ -34,6 +34,7 @@ export default function Nav({ isLoggedIn, logout }) {
                 <Spacer />
                 {!isLoggedIn && (
                     <>
+                   
                         <WrapItem>
                             <Center w='180px' h='50px' >
                                 <Link to="/signup">
@@ -51,6 +52,14 @@ export default function Nav({ isLoggedIn, logout }) {
                     </>
                 )}
                 {isLoggedIn && (
+                    <>
+                    <WrapItem>
+                            <Center w='180px' h='50px' >
+                                <Link to="/search">
+                                    <div>Search</div>
+                                </Link>
+                            </Center>
+                        </WrapItem>
                     <WrapItem>
                         <Center w='180px' h='50px' >
                             <div onClick={handleLogout}>
@@ -58,6 +67,7 @@ export default function Nav({ isLoggedIn, logout }) {
                             </div>
                         </Center>
                     </WrapItem>
+                    </>
                 )}
 
             </Wrap>

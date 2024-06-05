@@ -5,6 +5,7 @@ import Home from './components/pages/Home/Home.jsx'
 import Signup from './components/pages/Signup/Signup.jsx'
 import Login from './components/pages/Login/Login.jsx'
 import Nav from './components/Nav.jsx'
+import Search from './components/pages/Search/Search.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -21,6 +22,7 @@ const logout = () => {
       <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search/>}/>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/logout" element={<Home />} />
