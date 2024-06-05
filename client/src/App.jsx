@@ -6,6 +6,7 @@ import Signup from './components/pages/Signup/Signup.jsx'
 import Login from './components/pages/Login/Login.jsx'
 import Nav from './components/Nav.jsx'
 import Search from './components/pages/Search/Search.jsx'
+import SavedEx from './components/pages/SavedEx/SavedEx.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react'
 
@@ -50,6 +51,7 @@ const logout = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search getData={getData} bodyParts={bodyParts} setBodyParts={setBodyParts} />}/>
+        <Route path='/saved' element={<SavedEx />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/logout" element={<Home />} />

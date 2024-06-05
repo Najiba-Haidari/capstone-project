@@ -60,6 +60,13 @@ export default function Nav({ isLoggedIn, logout }) {
                                 </Link>
                             </Center>
                         </WrapItem>
+                        <WrapItem>
+                            <Center w='180px' h='50px' >
+                                <Link to="/saved">
+                                    <div>Dashboard</div>
+                                </Link>
+                            </Center>
+                        </WrapItem>
                     <WrapItem>
                         <Center w='180px' h='50px' >
                             <div onClick={handleLogout}>
