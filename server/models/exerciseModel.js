@@ -21,6 +21,10 @@ const ExerciseSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  // isSaved: {
+  //   type: Boolean,
+  //   default: false,
+  // },
   // secondaryMuscles: {
   //   type: [String], // Defines an array of strings
   //   default: [], // Default to an empty array if not provided

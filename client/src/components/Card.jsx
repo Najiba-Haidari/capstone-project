@@ -51,7 +51,7 @@ export default function Cards({ bpData, setBpData }) {
                                     ))}</ul> */}
                                     {/* <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                 </div>
-                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{text[e.id] || "Save"}</button>
+                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{text[e.id] || "save"}</button>
 
                             </div>
 

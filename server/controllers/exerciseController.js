@@ -19,7 +19,7 @@ export const createExercise = async (req, res) => {
       gifUrl,
       target,
       equipment,
-  
+      // secondaryMuscles, // Ensure this is an array of strings
     });
     await newExercise.save();
     res.status(201).json(newExercise);
