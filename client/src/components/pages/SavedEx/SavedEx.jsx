@@ -3,11 +3,18 @@ import { ExerciseContext } from '../../../ExerciseContext.jsx'
 // import { useEffect } from 'react';
 import axios from 'axios';
 import './SavedEx.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function SavedEx() {
+export default function SavedEx({isLoggedIn}) {
 //   const [savedExercises, setSavedExercises] = useState([]);
 const { savedExercises, setSavedExercises, deleteExercise } = useContext(ExerciseContext);
+const navigate = useNavigate(); 
 
+useEffect(() => {
+  if (!isLoggedIn) {
+    navigate('/'); // Redirect to home page if not logged in
+  }
+}, [isLoggedIn, navigate]);
 
   const getSavedExercises = async () => {
     try {

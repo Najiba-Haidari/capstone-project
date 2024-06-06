@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './Search.css';
 import Card from '../../Card.jsx';
 
@@ -6,6 +7,13 @@ export default function Search(props) {
   const [selectedBp, setSelectedBp] = useState("");
   const [bpData, setBpData] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate(); 
+
+  useEffect(() => {
+    if (!props.isLoggedIn) {
+      navigate('/'); 
+    }
+  }, [props.isLoggedIn, navigate]);
 
   const handleChange = (e) => {
     setIsSubmitted(false);

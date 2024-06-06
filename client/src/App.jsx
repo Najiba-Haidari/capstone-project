@@ -50,8 +50,8 @@ const logout = () => {
       <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search getData={getData} bodyParts={bodyParts} setBodyParts={setBodyParts} />}/>
-        <Route path='/saved' element={<SavedEx />} />
+        <Route path="/search" element={<Search getData={getData} bodyParts={bodyParts} setBodyParts={setBodyParts} isLoggedIn={isLoggedIn}/>}/>
+        <Route path='/saved' element={<SavedEx isLoggedIn={isLoggedIn}/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/logout" element={<Home />} />
