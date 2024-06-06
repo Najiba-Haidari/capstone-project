@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import  { createContext, useState } from 'react';
 import axios from 'axios'
 
 // Create the context
@@ -7,7 +7,7 @@ export const ExerciseContext = createContext();
 // Create the provider component
 export const ExerciseProvider = ({ children }) => {
   const [savedExercises, setSavedExercises] = useState([]);
-  const [text, setText] = useState("Save");
+  // const [text, setText] = useState("Save");
 
   const saveExercise = async (exercise) => {
     const exerciseData = {
@@ -21,7 +21,7 @@ export const ExerciseProvider = ({ children }) => {
         if (!savedExercises.some(saved => saved.id === exercise.id)) {
             await axios.post('http://localhost:3000/api/exercises', exerciseData);
             setSavedExercises([...savedExercises, exercise]);
-            setText(txt => ({...txt, [exercise.id]: "Saved"}))
+            // setText(txt => ({...txt, [exercise.id]: "Saved"}))
             alert('Exercise saved successfully!');
         }
         else {
@@ -37,7 +37,7 @@ const deleteExercise = async (exerciseId) => {
     try {
       await axios.delete(`http://localhost:3000/api/exercises/${exerciseId}`);
       setSavedExercises(savedExercises.filter((exercise) => exercise._id !== exerciseId));
-      setText((text) => ({ ...text, [exerciseId]: "Save" }));
+      // setText((text) => ({ ...text, [exerciseId]: "Save" }));
     } catch (error) {
       console.error('Error deleting exercise', error);
     }
@@ -46,7 +46,7 @@ const deleteExercise = async (exerciseId) => {
 
 
   return (
-    <ExerciseContext.Provider value={{ savedExercises, setSavedExercises, saveExercise, deleteExercise, text }}>
+    <ExerciseContext.Provider value={{ savedExercises, setSavedExercises, saveExercise, deleteExercise}}>
       {children}
     </ExerciseContext.Provider>
   );

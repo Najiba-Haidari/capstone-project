@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import { ExerciseContext } from '../ExerciseContext.jsx';
 // import axios from 'axios';
 // import {useState} from 'react'
 
 
 export default function Cards({ bpData, setBpData }) {
-    const { saveExercise, text } = useContext(ExerciseContext);
+    const { saveExercise, savedExercises} = useContext(ExerciseContext);
+    console.log(savedExercises)
     // const [savedExercises, setSavedExercises] = useState([]);
-
+console.log(bpData)
     // const saveExercise = async (exercise) => {
     //     const exerciseData = {
     //         name: exercise.name,
@@ -51,7 +52,7 @@ export default function Cards({ bpData, setBpData }) {
                                     ))}</ul> */}
                                     {/* <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                 </div>
-                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{text[e.id] || "save"}</button>
+                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{savedExercises.find(ex => ex.id === e.id) ? "Saved": "Save"}</button>
 
                             </div>
 
