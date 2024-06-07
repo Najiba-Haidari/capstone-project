@@ -52,7 +52,7 @@ console.log(bpData)
                                     ))}</ul> */}
                                     {/* <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                 </div>
-                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{savedExercises.find(ex => ex.id === e.id) ? "Saved": "Save"}</button>
+                                <button id="save" className="btn btn-primary w-50 p-2" onClick={() => saveExercise(e)}>{savedExercises.find(ex => ex.name === e.name) ? "Saved": "Save"}</button>
 
                             </div>
 
