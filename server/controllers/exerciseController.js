@@ -12,7 +12,7 @@ export const getExercises = async (req, res) => {
 
 // Create a new exercise
 export const createExercise = async (req, res) => {
-  const { name, gifUrl, target, equipment, isSaved } = req.body;
+  const { name, gifUrl, target, equipment } = req.body;
   console.log("created bodypart")
   try {
     const newExercise = new Exercise({
@@ -20,7 +20,7 @@ export const createExercise = async (req, res) => {
       gifUrl,
       target,
       equipment,
-      isSaved,
+      // isSaved,
       // secondaryMuscles, // Ensure this is an array of strings
     });
     await newExercise.save();
