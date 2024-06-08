@@ -45,7 +45,7 @@ export default function Nav({ isLoggedIn, logout }) {
                         <WrapItem>
                             <Center w='180px' h='50px' >
                                 <Link to="/login">
-                                    <div>login</div>
+                                    <div>Login</div>
                                 </Link>
                             </Center>
                         </WrapItem>
