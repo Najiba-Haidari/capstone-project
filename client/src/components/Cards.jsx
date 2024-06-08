@@ -10,7 +10,7 @@ export default function Cards({ bpData }) {
         <div className="container-card d-flex flex-row flex-wrap justify-content-center text-start">
             {bpData.map((exercise) => (
                 <ExerciseCard
-                    key={exercise.id}
+                    key={exercise._id}
                     exercise={exercise}
                     saveExercise={saveExercise}
                     savedExercises={savedExercises}

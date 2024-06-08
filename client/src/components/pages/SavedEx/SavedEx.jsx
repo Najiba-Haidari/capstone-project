@@ -12,8 +12,7 @@ export default function SavedEx({ isLoggedIn }) {
 
     useEffect(() => {
         if (!isLoggedIn) {
-          // Redirect to home page if not logged in
-            navigate('/'); 
+            navigate('/'); // Redirect to home page if not logged in
         }
     }, [isLoggedIn, navigate]);
 
@@ -36,7 +35,7 @@ export default function SavedEx({ isLoggedIn }) {
             <div className="container-card d-flex flex-row flex-wrap justify-content-center text-start">
                 {savedExercises.map((exercise) => (
                     <ExerciseCard
-                        key={exercise.id}
+                        key={exercise._id}
                         exercise={exercise}
                         deleteExercise={deleteExercise}
                     />
