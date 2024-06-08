@@ -76,7 +76,7 @@ export default function Cards({ bpData, setBpData }) {
                             </div>
                             <div id="accordion">
                                 <div className="">
-                                    <div className="card-header" id="headingOne">
+                                    <div className="card-header " id="headingOne">
                                         <h5 className="mb-0">
                                             <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
                                                 onClick={() => toggleInstructionAccordion(index)}
@@ -93,7 +93,7 @@ export default function Cards({ bpData, setBpData }) {
                                     </div>
                                     </div>
 
-                                    <div className="card-header" id="headingOne">
+                                    <div className="card-header " id="headingOne">
                                         <h5 className="mb-0">
                                             <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
                                                 onClick={() => toggleSecondaryMusclesAccordion(index)}
