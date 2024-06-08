@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './Search.css';
-import Card from '../../Card.jsx';
+import Cards from '../../Cards.jsx';
 import {Text } from '@chakra-ui/react'
 
 export default function Search(props) {
@@ -76,7 +76,7 @@ export default function Search(props) {
       <div className='container p-0 '>
         {isSubmitted && bpData ? (
           bpData.length > 0 ? (
-            <Card bpData={bpData} setBpData={setBpData} />
+            <Cards bpData={bpData} setBpData={setBpData} />
           ) : (
             <h2>Loading Exercises for {selectedBp}</h2>
           )

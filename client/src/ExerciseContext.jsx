@@ -15,7 +15,8 @@ export const ExerciseProvider = ({ children }) => {
       gifUrl: exercise.gifUrl,
       target: exercise.target,
       equipment: exercise.equipment,
-      //   secondaryMuscles: exercise.secondaryMuscles,
+      instructions: exercise.instructions,
+      secondaryMuscles: exercise.secondaryMuscles,
     };
     try {
       if (!savedExercises.find(saved => saved.name === exercise.name)) {
