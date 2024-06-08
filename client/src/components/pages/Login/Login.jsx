@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import './Login.css'
+import './Login.css';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Box,
+  Heading,
+  Text
+} from '@chakra-ui/react';
 
-const Login = ({setIsLoggedIn}) => {
+const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -22,14 +31,11 @@ const Login = ({setIsLoggedIn}) => {
         throw new Error('Login failed');
       }
       // Clear previous error if any
-     
-      // Handle successful login
-      console.log('Login successful');
       setError(null);
-      setEmail("")
-      setPassword("")
-      setIsLoggedIn(true)
-      navigate('/')
+      setEmail("");
+      setPassword("");
+      setIsLoggedIn(true);
+      navigate('/');
     } catch (err) {
       // Handle failed login
       console.error('Login error:', err.message);
@@ -38,37 +44,35 @@ const Login = ({setIsLoggedIn}) => {
   };
 
   return (
-    <div className="transparent-login ">
-      <h2 className="my-3 ">Login</h2>
-      <form onSubmit={handleSubmit} className="">
-        <div>
-          {/* <label htmlFor="email">Email:</label> */}
-          <input
-          className="p-2 my-3 w-100"
+    <Box border='1px' borderColor='gray.200' boxShadow='2xl' p={6} rounded='md' className="transparent-login">
+      <Heading as="h2" size="lg" mb={4}>Login</Heading>
+      <form onSubmit={handleSubmit}>
+        <FormControl isRequired>
+          <FormLabel>Email</FormLabel>
+          <Input
+            className="p-2 my-3 w-100 inputplace"
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
             required
           />
-        </div>
-        <div>
-          {/* <label htmlFor="password">Password:</label> */}
-          <input
-          className="p-2 my-3 w-100"
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Password</FormLabel>
+          <Input
+            className="p-2 my-3 w-100"
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
             required
           />
-        </div>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-        <button type="submit" className="btn btn-primary w-50 p-2 my-3">Login</button>
+        </FormControl>
+        {error && <Text color="red.500" mt={2}>{error}</Text>}
+        <Button type="submit" className="w-50 p-2 my-3" mt={4} colorScheme="blue">Login</Button>
       </form>
-    </div>
+    </Box>
   );
 };
 

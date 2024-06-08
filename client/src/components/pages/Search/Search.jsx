@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './Search.css';
 import Card from '../../Card.jsx';
+import {Text } from '@chakra-ui/react'
 
 export default function Search(props) {
   const [selectedBp, setSelectedBp] = useState("");
@@ -55,7 +56,15 @@ export default function Search(props) {
 
   return (
     <div className="">
-      <h1 className='m-5 heading '>Choose your <span id='title'>Exercise</span></h1>
+      {/* <h1 className='m-5 heading '>Choose your <span id='title'>Exercise</span></h1> */}
+      <Text
+  bgGradient='linear(to-l, #7928CA, #FF0080)'
+  bgClip='text'
+  fontSize='6xl'
+  fontWeight='extrabold'
+>
+  Choose Your Exercise
+</Text>
       <form className="form my-3 py-5" onSubmit={handleSubmit}>
         <select placeholder='Select option' className="w-50 p-2 m-2" onChange={handleChange}>
           {props.bodyParts.map((b) => (

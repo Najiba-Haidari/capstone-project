@@ -1,9 +1,9 @@
 .transparent-signup{
     width: 450px;
-    height: 450px;
+    height: fit-content;
     margin: 140px auto;
     padding: 50px;
-background-color: rgba(36, 36, 36, 0.1);    
+/* background-color: rgba(36, 36, 36, 0.1);     */
 /* color: white; */
 }
 
