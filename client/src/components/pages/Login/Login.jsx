@@ -11,7 +11,7 @@ import {
   Text
 } from '@chakra-ui/react';
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = ({ setIsLoggedIn, setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -26,11 +26,17 @@ const Login = ({ setIsLoggedIn }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-      });
+      }       
+    );
       if (!response.ok) {
         throw new Error('Login failed');
       }
-      // Clear previous error if any
+      const data = await response.json();
+      // const { token } = response.data;
+
+      setToken(data.token);
+      // localStorage.setItem('token', token); // Store token in local storage
+
       setError(null);
       setEmail("");
       setPassword("");

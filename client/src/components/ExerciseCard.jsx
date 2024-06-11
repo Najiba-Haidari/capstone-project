@@ -1,6 +1,23 @@
 import { useState } from 'react';
 
-export default function ExerciseCard({ exercise, saveExercise, savedExercises, deleteExercise }) {
+export default function ExerciseCard({ exercise, saveExercise, savedExercises, deleteExercise,  token, isLoggedIn  }) {
+    const handleSave = () => {
+        if (isLoggedIn) {
+          saveExercise(exercise, token);
+        } else {
+          alert('Please log in to save exercises.');
+        }
+      };
+    
+      const handleDelete = () => {
+        if (isLoggedIn) {
+            deleteExercise(exercise._id, token);
+          } else {
+            alert('Please log in to delete exercises.');
+          }
+      };
+    
+    
     const [activeInstructionIndex, setActiveInstructionIndex] = useState(null);
     const [activeSecondaryMusclesIndex, setActiveSecondaryMusclesIndex] = useState(null);
 
@@ -64,12 +81,12 @@ export default function ExerciseCard({ exercise, saveExercise, savedExercises, d
                         </div>
                     </div>
                     {saveExercise && (
-                        <button id="save" className="btn btn-primary w-50 p-2 mx-auto my-3" onClick={() => saveExercise(exercise)}>
+                        <button id="save" className="btn btn-primary w-50 p-2 mx-auto my-3" onClick={handleSave} >
                             {savedExercises.find(ex => ex.name === exercise.name) ? "Saved" : "Save"}
                         </button>
                     )}
                     {deleteExercise && (
-                        <button id="save" className="btn btn-danger p-2 mx-auto my-3" onClick={() => deleteExercise(exercise._id)}>
+                        <button id="save" className="btn btn-danger p-2 mx-auto my-3" onClick={handleDelete}>
                             Delete
                         </button>
                     )}

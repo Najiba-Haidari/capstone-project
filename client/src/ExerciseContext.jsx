@@ -9,34 +9,38 @@ export const ExerciseProvider = ({ children }) => {
   const [savedExercises, setSavedExercises] = useState([]);
   // const [text, setText] = useState("Save");
 
-  const saveExercise = async (exercise) => {
+  const saveExercise = async (exercise, token) => {
     const exerciseData = {
-      name: exercise.name,
-      gifUrl: exercise.gifUrl,
-      target: exercise.target,
-      equipment: exercise.equipment,
-      instructions: exercise.instructions,
-      secondaryMuscles: exercise.secondaryMuscles,
+        userId: exercise.userId,
+        name: exercise.name,
+        gifUrl: exercise.gifUrl,
+        target: exercise.target,
+        equipment: exercise.equipment,
+        instructions: exercise.instructions,
+        secondaryMuscles: exercise.secondaryMuscles,
     };
     try {
-      if (!savedExercises.find(saved => saved.name === exercise.name)) {
-        await axios.post('http://localhost:3000/api/exercises', exerciseData);
-        setSavedExercises([...savedExercises, exercise]);
-        // setText(txt => ({...txt, [exercise.id]: "Saved"}))
-        alert('Exercise saved successfully!');
-      }
-      else {
-        alert('Exercise already saved!');
-      }
+        if (!savedExercises.find(saved => saved.name === exercise.name)) {
+            await axios.post('http://localhost:3000/api/exercises', exerciseData, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            setSavedExercises([...savedExercises, exercise]);
+            alert('Exercise saved successfully!');
+        } else {
+            alert('Exercise already saved!');
+        }
     } catch (error) {
-      console.error('Error saving exercise', error);
+        console.error('Error saving exercise:', error);
     }
-  };
+};
 
 
-  const deleteExercise = async (exerciseId) => {
+
+  const deleteExercise = async (exerciseId, token) => {
     try {
-      await axios.delete(`http://localhost:3000/api/exercises/${exerciseId}`);
+      await axios.delete(`http://localhost:3000/api/exercises/${exerciseId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setSavedExercises(savedExercises.filter((exercise) => exercise._id !== exerciseId));
       // setText((text) => ({ ...text, [exerciseId]: "Save" }));
     } catch (error) {

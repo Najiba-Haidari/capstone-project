@@ -6,9 +6,9 @@ import './SavedEx.css';
 import { useNavigate } from 'react-router-dom';
 import ExerciseCard from '../../ExerciseCard.jsx';
 
-export default function SavedEx({ isLoggedIn }) {
+export default function SavedEx({ isLoggedIn, token }) {
     const { savedExercises, setSavedExercises, deleteExercise } = useContext(ExerciseContext);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!isLoggedIn) {
@@ -18,16 +18,23 @@ export default function SavedEx({ isLoggedIn }) {
 
     const getSavedExercises = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/exercises');
-            setSavedExercises(response.data);
+            if (token) {
+                const response = await axios.get('http://localhost:3000/api/exercises', {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                setSavedExercises(response.data);
+            }
         } catch (error) {
-            console.error('Error fetching saved exercises', error);
+            console.error('Error fetching saved exercises:', error);
         }
     };
 
+
     useEffect(() => {
-        getSavedExercises();
-    }, []);
+        if (token) {
+            getSavedExercises();
+        }
+    }, [token]);
 
     return (
         <div className='w-75 mx-auto'>
@@ -38,6 +45,8 @@ export default function SavedEx({ isLoggedIn }) {
                         key={exercise._id}
                         exercise={exercise}
                         deleteExercise={deleteExercise}
+                        token={token}
+                        isLoggedIn={isLoggedIn}
                     />
                 ))}
             </div>

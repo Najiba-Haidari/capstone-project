@@ -16,6 +16,8 @@ import { useState, useEffect } from 'react'
 function App() {
 const [isLoggedIn, setIsLoggedIn]= useState(false)
 const [bodyParts, setBodyParts] = useState([])
+const [token, setToken] = useState(localStorage.getItem('token'));
+
 const url = "https://exercisedb.p.rapidapi.com/exercises/bodyPartList";
 const API_KEY = "cee23baa0amshab7b2d353f6de30p134a0ajsnc54ace73156b";
 
@@ -44,6 +46,8 @@ useEffect(() => {
 const logout = () => {
   // Clear client-side token or any other logout logic
   setIsLoggedIn(false);
+  setToken(null);
+  localStorage.removeItem('token');
 };
 
   return (
@@ -51,11 +55,11 @@ const logout = () => {
       <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search getData={getData} bodyParts={bodyParts} setBodyParts={setBodyParts} isLoggedIn={isLoggedIn}/>}/>
+        <Route path="/search" element={<Search getData={getData} bodyParts={bodyParts} setBodyParts={setBodyParts} isLoggedIn={isLoggedIn} token={token}/>}/>
         {/* <Route path='/search/instructions/:name' element={<Instructions />} /> */}
-        <Route path='/saved' element={<SavedEx isLoggedIn={isLoggedIn}/>} />
+        <Route path='/saved' element={<SavedEx isLoggedIn={isLoggedIn} token={token}/>}  />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  setToken={setToken} />} />
         <Route path="/logout" element={<Home />} />
       </Routes>
     </div>

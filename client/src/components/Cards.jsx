@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ExerciseContext } from '../ExerciseContext.jsx';
 import ExerciseCard from './ExerciseCard.jsx';
 
-export default function Cards({ bpData }) {
+export default function Cards({ bpData, token, isLoggedIn }) {
     const { saveExercise, savedExercises } = useContext(ExerciseContext);
 
     return (
@@ -14,6 +14,8 @@ export default function Cards({ bpData }) {
                     exercise={exercise}
                     saveExercise={saveExercise}
                     savedExercises={savedExercises}
+                    token={token}
+          isLoggedIn={isLoggedIn}
                 />
             ))}
         </div>

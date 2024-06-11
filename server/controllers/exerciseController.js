@@ -3,7 +3,7 @@ import Exercise from '../models/exerciseModel.js';
 // Get all exercises
 export const getExercises = async (req, res) => {
   try {
-    const exercises = await Exercise.find();
+    const exercises = await Exercise.find({userId: req.user._id});
     res.status(200).json(exercises);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -13,11 +13,11 @@ export const getExercises = async (req, res) => {
 // Create a new exercise
 export const createExercise = async (req, res) => {
   const { name, gifUrl, target, equipment, instructions, secondaryMuscles } = req.body;
-  console.log("Received data:", req.body); // Add this line
+  console.log("Received data:", req.body); 
 
-  // console.log("created bodypart")
   try {
     const newExercise = new Exercise({
+      userId: req.user._id,
       name,
       gifUrl,
       target,
@@ -28,6 +28,7 @@ export const createExercise = async (req, res) => {
     await newExercise.save();
     res.status(201).json(newExercise);
   } catch (error) {
+    console.log(error.message)
     res.status(400).json({ message: error.message });
   }
 };

@@ -76,7 +76,7 @@ export default function Search(props) {
       <div className='container p-0 '>
         {isSubmitted && bpData ? (
           bpData.length > 0 ? (
-            <Cards bpData={bpData} setBpData={setBpData} />
+            <Cards bpData={bpData} setBpData={setBpData}  token={props.token} isLoggedIn={props.isLoggedIn}/>
           ) : (
             <h2>Loading Exercises for {selectedBp}</h2>
           )
