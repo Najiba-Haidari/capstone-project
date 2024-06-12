@@ -87,6 +87,7 @@ THEN that specific card is removed from the list of saved exercises in database
         * npm run dev
         * open http://localhost:5173/ in your browser
     * in Server
+        * npm install
         * noder server.js
         * use this port http://localhost:3000 in Postman/Insomnia/Browser
 * And / or 
