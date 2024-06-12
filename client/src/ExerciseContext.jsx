@@ -4,6 +4,8 @@ import axios from 'axios'
 // Create the context
 export const ExerciseContext = createContext();
 
+const EXE_URL= import.meta.env.DEV ? 'http://localhost:3000/api/exercises'
+: "https://haidari-najiba-exercisexpert-capstone.onrender.com/api/exercises" 
 // Create the provider component
 export const ExerciseProvider = ({ children }) => {
   const [savedExercises, setSavedExercises] = useState([]);
@@ -21,7 +23,7 @@ export const ExerciseProvider = ({ children }) => {
     };
     try {
         if (!savedExercises.find(saved => saved.name === exercise.name)) {
-            await axios.post('http://localhost:3000/api/exercises', exerciseData, {
+            await axios.post(EXE_URL, exerciseData, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setSavedExercises([...savedExercises, exercise]);
@@ -38,7 +40,7 @@ export const ExerciseProvider = ({ children }) => {
 
   const deleteExercise = async (exerciseId, token) => {
     try {
-      await axios.delete(`http://localhost:3000/api/exercises/${exerciseId}`, {
+      await axios.delete(`${EXE_URL}/${exerciseId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSavedExercises(savedExercises.filter((exercise) => exercise._id !== exerciseId));
