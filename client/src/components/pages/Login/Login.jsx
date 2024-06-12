@@ -11,6 +11,9 @@ import {
   Text
 } from '@chakra-ui/react';
 
+const LOGIN_URL= import.meta.env.DEV ? 'http://localhost:3000/api/users/login'
+: "https://haidari-najiba-exercisexpert-capstone.onrender.com/api/users/login" 
+
 const Login = ({ setIsLoggedIn, setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +23,7 @@ const Login = ({ setIsLoggedIn, setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/users/login', {
+      const response = await fetch(LOGIN_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -77,7 +77,7 @@ THEN that specific card is removed from the list of saved exercises in database
 ## Deploy Link
 
 - Github Repo URL: https://github.com/Najiba-Haidari/haidari_najiba_exerciseXpert_capstone
-- Deployed URL: 
+- Deployed URL: https://haidari-najiba-exercisexpert-capstone-1.onrender.com/ 
 
 ## Installation
 

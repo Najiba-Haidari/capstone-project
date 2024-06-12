@@ -10,6 +10,9 @@ import {
 } from '@chakra-ui/react';
 import './Signup.css';
 
+const SIGNUP_URL= import.meta.env.DEV ? 'http://localhost:3000/api/users'
+: "https://haidari-najiba-exercisexpert-capstone.onrender.com/api/users" 
+
 export default function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +22,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/users', {
+      const response = await fetch(SIGNUP_URL, {
         method: 'POST',
         body: JSON.stringify({ username, email, password }),
         headers: {

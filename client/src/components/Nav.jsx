@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom';
 import './Nav.css'
 import { Wrap, WrapItem, Center, Box, Flex, Spacer } from '@chakra-ui/react'
 
+const LOGOUT_URL= import.meta.env.DEV ? 'http://localhost:3000/api/users/logout'
+: "https://haidari-najiba-exercisexpert-capstone.onrender.com/api/users/logout" 
+
 export default function Nav({ isLoggedIn, logout }) {
 
     const handleLogout = async () => {
         try {
-            await fetch('http://localhost:3000/api/users/logout', {
+            await fetch(LOGOUT_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

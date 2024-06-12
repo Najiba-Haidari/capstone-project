@@ -6,6 +6,9 @@ import './SavedEx.css';
 import { useNavigate } from 'react-router-dom';
 import ExerciseCard from '../../ExerciseCard.jsx';
 
+const EXE_URL= import.meta.env.DEV ? 'http://localhost:3000/api/exercises'
+: "https://haidari-najiba-exercisexpert-capstone.onrender.com/api/exercises" 
+
 export default function SavedEx({ isLoggedIn, token }) {
     const { savedExercises, setSavedExercises, deleteExercise } = useContext(ExerciseContext);
     const navigate = useNavigate();
@@ -19,7 +22,7 @@ export default function SavedEx({ isLoggedIn, token }) {
     const getSavedExercises = async () => {
         try {
             if (token) {
-                const response = await axios.get('http://localhost:3000/api/exercises', {
+                const response = await axios.get(EXE_URL, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setSavedExercises(response.data);
