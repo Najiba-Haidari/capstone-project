@@ -1,6 +1,10 @@
 .form{
     width: 100%;
+    /* height: 60vh; */
     /* background-color: #61dafbaa; */
+  }
+  .height{
+    height: 400px;
   }
   .btn-submit{
     outline-style: solid;

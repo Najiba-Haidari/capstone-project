@@ -73,7 +73,7 @@ export default function Search(props) {
         </select>
         <input className="btn-submit " value="Search" type="submit" />
       </form>
-      <div className='container p-0 '>
+      <div className='container p-0'>
         {isSubmitted && bpData ? (
           bpData.length > 0 ? (
             <Cards bpData={bpData} setBpData={setBpData}  token={props.token} isLoggedIn={props.isLoggedIn}/>
@@ -81,7 +81,7 @@ export default function Search(props) {
             <h2>Loading Exercises for {selectedBp}</h2>
           )
         ) : (
-          <h3>Please select a body part and click Search</h3>
+          <h3 className='height'>Please select a body part and click Search</h3>
         )}
       </div>
     </div>
