@@ -5,6 +5,7 @@ import Home from './components/pages/Home/Home.jsx'
 import Signup from './components/pages/Signup/Signup.jsx'
 import Login from './components/pages/Login/Login.jsx'
 import Nav from './components/Nav.jsx'
+import Footer from './components/Footer.jsx'
 import Search from './components/pages/Search/Search.jsx'
 import SavedEx from './components/pages/SavedEx/SavedEx.jsx'
 // import Instructions from './components/pages/Instructions/Instructions.jsx'
@@ -62,6 +63,7 @@ const logout = () => {
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  setToken={setToken} />} />
         <Route path="/logout" element={<Home />} />
       </Routes>
+      <Footer/>
     </div>
   )
 }
