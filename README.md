@@ -63,19 +63,32 @@ THEN that specific card is removed from the list of saved exercises in database
 
 ## Technologies Used
 
+- MongoDB : to store data in flexible, JSON like documents
+- Express.js
 - React
-- React Hooks: useState, useContext (to get savedExercises to other page/component and being able to delete)
+- React Hooks: useState, useEffect, and useContext (to get savedExercises to other page/component and being able to delete)
+- Node.js
 - exercise DB API (extract data for exercises based on body part name and also body parts lists)
+- Jason Web Token (JWT) for Authentication
+- Bcryptjs to hash the passwords
+- Chakra UI as Component Library for React
+- Dotenv
+- 
 
 ## Deploy Link
 
-- Github Repo URL: https://github.com/Najiba-Haidari/exerciseXpert-react
-- Netlify URL: https://guileless-chebakia-6ea38c.netlify.app
+- Github Repo URL: https://github.com/Najiba-Haidari/haidari_najiba_exerciseXpert_capstone
+- Deployed URL: 
 
 ## Installation
 
-- Fork the respository
-- npm install
-- npm run dev
-  And/or
-- Just click on deployed app link.
+* Fork the respository
+    * In Client
+        * npm instal
+        * npm run dev
+        * open http://localhost:5173/ in your browser
+    * in Server
+        * noder server.js
+        * use this port http://localhost:3000 in Postman/Insomnia/Browser
+* And / or 
+    * Just visit the deployed link
