@@ -18,8 +18,8 @@ const [isLoggedIn, setIsLoggedIn]= useState(false)
 const [bodyParts, setBodyParts] = useState([])
 const [token, setToken] = useState(localStorage.getItem('token'));
 
-const url = "https://exercisedb.p.rapidapi.com/exercises/bodyPartList";
-const API_KEY = "cee23baa0amshab7b2d353f6de30p134a0ajsnc54ace73156b";
+const url = import.meta.env.VITE_URL_BP_NAMES;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getData = async function () {
   const options = {

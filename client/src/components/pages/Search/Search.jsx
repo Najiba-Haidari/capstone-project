@@ -22,7 +22,7 @@ export default function Search(props) {
   };
 
   const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${selectedBp}?limit=15`;
-  const API_KEY = "cee23baa0amshab7b2d353f6de30p134a0ajsnc54ace73156b";
+  const API_KEY = import.meta.env.VITE_API_KEY;
   
   const getBpData = async () => {
     const options = {
