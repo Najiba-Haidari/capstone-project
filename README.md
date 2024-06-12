@@ -73,6 +73,7 @@ THEN that specific card is removed from the list of saved exercises in database
 - Bcryptjs to hash the passwords
 - Chakra UI as Component Library for React
 - Dotenv
+- Parallax Scrolling
 
 ## Deploy Link
 
