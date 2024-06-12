@@ -74,6 +74,7 @@ THEN that specific card is removed from the list of saved exercises in database
 - Chakra UI as Component Library for React
 - Dotenv
 - Parallax Scrolling
+- Bootstrap
 
 ## Deploy Link
 
